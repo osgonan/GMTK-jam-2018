@@ -9,7 +9,7 @@ public class EnemyManager : MonoBehaviour {
 
     public void spawnEnemy() {
         float spawnerRandom = Random.Range(0, 100);
-        /*for (int i = 0; i < enemies.size; i++) {
+       /* for (int i = 0; i < enemies.size(); i++) {
 
         }*/
 
