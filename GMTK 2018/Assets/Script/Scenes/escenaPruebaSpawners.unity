@@ -202,7 +202,7 @@ Transform:
   m_GameObject: {fileID: 313540881}
   m_LocalRotation: {x: -0.000000062409576, y: -0.000047541325, z: 0.0000000884929,
     w: 1}
-  m_LocalPosition: {x: 11, y: 0.5, z: 10.2}
+  m_LocalPosition: {x: 11, y: 0.5, z: -7.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1781509914}
@@ -770,6 +770,7 @@ MonoBehaviour:
   spawnEnemyRandom:
   - 0.5
   - 1
+  spawnedEnemy: []
 --- !u!4 &1781509914
 Transform:
   m_ObjectHideFlags: 0
