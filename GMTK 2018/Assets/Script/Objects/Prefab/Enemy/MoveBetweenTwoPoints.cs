@@ -5,15 +5,22 @@ using UnityEngine;
 public class MoveBetweenTwoPoints : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
-    [SerializeField] private List<GameObject> pointX;
-    [SerializeField] private bool reverseMove = false;
-    [SerializeField] private bool moveThisObject = false;
+
+    [System.Serializable]
+    public class ListContainer
+    {
+        public List<GameObject> ListRouts = new List<GameObject>();
+    }
+
+    [SerializeField] private List<ListContainer> routsX;
+    private List<GameObject> pointX;
     private Transform objectToUse;
     private float startTime;
     private float journeyLength;
     private float distCovered;
     private float fracJourney;
     private int state;
+    private int index;
     private GameObject pointCurrentA;
     private GameObject pointCurrentB;
 
@@ -22,6 +29,10 @@ public class MoveBetweenTwoPoints : MonoBehaviour
         startTime = Time.time;
         state = -1;
         objectToUse = transform;
+
+        index = Random.Range(0, routsX.Count);
+        pointX = routsX[index].ListRouts;
+
         if (pointX.Count > 1)
         {
             pointCurrentA = pointX[0];
@@ -34,7 +45,7 @@ public class MoveBetweenTwoPoints : MonoBehaviour
         if (pointX.Count > state+1)
         {
             distCovered = (Time.time - startTime) * moveSpeed;
-            fracJourney = distCovered / journeyLength;
+            fracJourney = distCovered;// / journeyLength;
             objectToUse.position = Vector3.Lerp(pointCurrentA.transform.position, pointCurrentB.transform.position, fracJourney);
 
             if ((Vector3.Distance(objectToUse.position, pointCurrentB.transform.position) == 0.0f || Vector3.Distance(objectToUse.position, pointCurrentA.transform.position) == 0.0f)) //Checks if the object has travelled to one of the points
