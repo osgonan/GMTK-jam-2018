@@ -7,8 +7,8 @@ public class MoveBetweenTwoPoints : MonoBehaviour
     [SerializeField] private float moveSpeed;
     [SerializeField] private List<GameObject> pointX;
     [SerializeField] private bool reverseMove = false;
-    [SerializeField] private Transform objectToUse;
     [SerializeField] private bool moveThisObject = false;
+    private Transform objectToUse;
     private float startTime;
     private float journeyLength;
     private float distCovered;
@@ -21,8 +21,7 @@ public class MoveBetweenTwoPoints : MonoBehaviour
     {
         startTime = Time.time;
         state = -1;
-        if (moveThisObject)
-            objectToUse = transform;
+        objectToUse = transform;
         if (pointX.Count > 1)
         {
             pointCurrentA = pointX[0];
@@ -32,7 +31,7 @@ public class MoveBetweenTwoPoints : MonoBehaviour
     }
     void Update()
     {
-        if (pointX.Count > state)
+        if (pointX.Count > state+1)
         {
             distCovered = (Time.time - startTime) * moveSpeed;
             fracJourney = distCovered / journeyLength;
