@@ -9,7 +9,7 @@ namespace GMTK2018
         public float vidas;
         public string nombreJugador;
         public float speedx, speedy;
-
+        public int enemigosPasados;
 
 
     }

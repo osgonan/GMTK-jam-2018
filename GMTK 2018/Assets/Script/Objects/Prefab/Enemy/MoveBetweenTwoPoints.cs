@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GMTK2018;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,6 +18,11 @@ public class MoveBetweenTwoPoints : MonoBehaviour
     private int index;
     private GameObject pointCurrentA;
     private GameObject pointCurrentB;
+
+
+    public PlayerStats playerStats;
+
+
 
     void Start()
     {
@@ -49,6 +55,11 @@ public class MoveBetweenTwoPoints : MonoBehaviour
                 }
                 startTime = Time.time;
             }
+        }
+        else
+        {
+            playerStats.enemigosPasados++;
+            Destroy(gameObject);
         }
     }
 }
