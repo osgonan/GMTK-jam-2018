@@ -3,7 +3,12 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Pasto
+  - Tierra
+  - Troll
+  - Wolf
+  - Giant
   layers:
   - Default
   - TransparentFX

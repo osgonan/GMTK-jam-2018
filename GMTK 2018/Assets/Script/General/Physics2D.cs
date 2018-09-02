@@ -16,14 +16,14 @@ namespace GMTK2018
 
 
         }
-        protected void mover(Transform transform, float dx,float dy,bool activo) {
+        protected void mover(Transform transform,Transform esquipo, float dx,float dy,bool activo) {
             if (activo) {
                 Vector3 rightMovement = right * dx;
                 Vector3 upMovement = forward * dy;
 
                 Debug.Log(rightMovement + " " + upMovement);
                 Vector3 headling = Vector3.Normalize(upMovement + rightMovement);
-                transform.forward = headling;
+                esquipo.forward = headling;
                 transform.position += rightMovement;
                 transform.position += upMovement;
 

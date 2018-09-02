@@ -6,14 +6,8 @@ public class MoveBetweenTwoPoints : MonoBehaviour
 {
     [SerializeField] private float moveSpeed;
 
-    [System.Serializable]
-    public class ListContainer
-    {
-        public List<GameObject> ListRouts = new List<GameObject>();
-    }
 
-    [SerializeField] private List<ListContainer> routsX;
-    private List<GameObject> pointX;
+    public List<GameObject> pointX;
     private Transform objectToUse;
     private float startTime;
     private float journeyLength;
@@ -29,9 +23,6 @@ public class MoveBetweenTwoPoints : MonoBehaviour
         startTime = Time.time;
         state = -1;
         objectToUse = transform;
-
-        index = Random.Range(0, routsX.Count);
-        pointX = routsX[index].ListRouts;
 
         if (pointX.Count > 1)
         {
