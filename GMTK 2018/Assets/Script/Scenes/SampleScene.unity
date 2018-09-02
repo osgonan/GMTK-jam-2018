@@ -2414,6 +2414,7 @@ MonoBehaviour:
   nombreJugador: P1
   speedx: 12
   speedy: 12
+  enemigosPasados: 0
 --- !u!212 &1205663020
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3459,6 +3460,7 @@ MonoBehaviour:
   maxEnemies: 30
   timeForGenerationOfEnemies: 1
   timeForNewHorde: 1
+  playerStats: {fileID: 1205663019}
 --- !u!4 &1781509914
 Transform:
   m_ObjectHideFlags: 0

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using GMTK2018;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -26,6 +27,8 @@ public class EnemyManager : MonoBehaviour {
     public float timeForGenerationOfEnemies;
     public float timeForNewHorde;
 
+    public PlayerStats playerStats;
+
 
     public void  addSpawner(Transform spawnPosition) {
         spawners.Add(spawnPosition);
@@ -43,7 +46,8 @@ public class EnemyManager : MonoBehaviour {
             if (spawnerRandom <= spawnEnemyRandom[i] && spawnedEnemy.Count<= maxEnemies)
             {
                 int index = Random.Range(0, routsX.Count);
-                enemies[i].GetComponent<MoveBetweenTwoPoints>().pointX = routsX[index].ListRouts;
+                enemies[i].GetComponent<MoveBetweenTwoPoints>().pointX = routsX[index].ListRouts; enemies[i].GetComponent<MoveBetweenTwoPoints>();
+                enemies[i].GetComponent<MoveBetweenTwoPoints>().playerStats = playerStats;
                 int position = Random.Range(0, spawners.Count - 1);
                 spawnedEnemy.Add(Instantiate(enemies[i],spawners[position].position,spawners[position].rotation));
             }
