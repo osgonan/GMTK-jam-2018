@@ -7,6 +7,7 @@ namespace GMTK2018
 {
     public class InputManager : Physics2D
     {
+        public Animator animator;
 
         public  PlayerStats status;
         bool moving = false;
@@ -24,12 +25,14 @@ namespace GMTK2018
         {
             moving = false;
             Vector3 direccion = new Vector3();
-
+            if (Input.GetKey("escape"))
+                Application.Quit();
             if (Input.GetKey(KeyCode.Space))
             {
                 
                 timeButtonPressed += Time.time;
                 diggin = true;
+                GetComponent<PlayerSound>().playAttackSound();
             }
             else {
                 timeToCreateHole += timeButtonPressed;
@@ -43,14 +46,15 @@ namespace GMTK2018
                 {
                     if (Input.GetAxis("Horizontal") > 0)
                     {
-                        this.GetComponent<SpriteRenderer>().flipX = true;
+                        this.GetComponent<SpriteRenderer>().flipX = false;
                     }
                     else
                     {
-                        this.GetComponent<SpriteRenderer>().flipX = false;
+                        this.GetComponent<SpriteRenderer>().flipX = true;
                     }
                     direccion.x = Input.GetAxis("Horizontal") * status.speedx * Time.deltaTime;
                     moving = true;
+                  
                 }
 
                 if (Math.Abs(Input.GetAxis("Vertical")) > 0.5)
@@ -60,17 +64,23 @@ namespace GMTK2018
                 }
                 if (moving)
                 {
+                    
                     Transform objeto = this.GetComponentInChildren<Transform>();
                     mover(GetComponent<Transform>(), objeto, direccion.x, direccion.z, true);
+                        GetComponent<PlayerSound>().playWalkSound();
+
+                    
                 }
             }
             else {
                 if (timeToCreateHole < timeButtonPressed && !digged) {
                     this.GetComponent<PlayerActions>().CreateHole(digginPosition.transform);
                     digged = true;
+
                 }
             }
-                
+            animator.SetBool("walking", moving);
+            animator.SetBool("diggin", diggin);
         }
     }
 }

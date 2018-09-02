@@ -25,17 +25,23 @@ public class SoundManager : MonoBehaviour {
 	}
 
     public void PlaySingle(AudioClip clip) {
-        fxSound.clip = clip;
-        fxSound.Play();
+        if (!fxSound.isPlaying)
+        {
+            fxSound.clip = clip;
+            fxSound.PlayOneShot(clip);
+        }
     }
 
     public void RandomizeFx(params AudioClip[] clips)
     {
-        int randomIndex = Random.Range(0, clips.Length);
-        float randomPitch = Random.Range(lowPitchRange, highPitchRange);
-        fxSound.pitch = randomPitch;
-        fxSound.clip = clips[randomIndex];
-        fxSound.Play();
+        if (!fxSound.isPlaying) {
+            int randomIndex = Random.Range(0, clips.Length);
+            float randomPitch = Random.Range(lowPitchRange, highPitchRange);
+            fxSound.pitch = randomPitch;
+            fxSound.clip = clips[randomIndex];
+            fxSound.PlayOneShot(clips[randomIndex]);
+        }
+
     }
 
 }

@@ -17,6 +17,9 @@ public class GameManager : MonoBehaviour {
     public int VillagerAlive;
     public int villagerDeath;
 
+    public float width,height;
+
+
     public void foodAsBait(int quantity) {
         food -= quantity;
     }
@@ -55,4 +58,7 @@ public class GameManager : MonoBehaviour {
 
         }
     }
+
+
+
 }
