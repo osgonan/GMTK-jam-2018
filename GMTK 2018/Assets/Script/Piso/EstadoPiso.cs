@@ -11,8 +11,8 @@ public class EstadoPiso : MonoBehaviour {
     bool hasBait; // if floor has bait (you can only put bait if you had de resource and the floor is hidden)
     bool netCreated;  //if enemy fly they get trap by the net (work as a hole but for flying enemies)
     int quantityBait; //more bait more easy is the enemy to get caught
-    int MaxEnemieCapacity;
-    List<GameObject> EnemyCatched;
+    public int MaxEnemieCapacity;
+    int EnemyCatched=0;
     float chancestoGetCaught; //the chances to get caught by the floor
 
 
@@ -34,16 +34,27 @@ public class EstadoPiso : MonoBehaviour {
         GetComponent<SphereCollider>().radius = 4* quantityBait;
     }
 
-    public void clearEnemies() {
+    /*public void clearEnemies() {
         EnemyCatched.Clear();
     }
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    */
+
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Hole") {
+            Destroy(other.gameObject);
+        }
+        if (other.tag == "Enemy") {
+            Debug.Log("Catched");
+
+            EnemyCatched++;
+            Destroy(other.gameObject);
+            if (EnemyCatched >= MaxEnemieCapacity) {
+                Destroy(this.gameObject);
+            }
+            
+            
+        }
+    }
 }

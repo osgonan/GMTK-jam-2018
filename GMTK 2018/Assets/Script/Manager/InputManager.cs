@@ -12,11 +12,12 @@ namespace GMTK2018
         bool moving = false;
 
         bool diggin = false;
+        bool digged = false;
         public float timeButtonPressed=0;
 
         public float timeToCreateHole;
 
-        public GameObject DigginPosition;
+        public GameObject digginPosition;
 
 
         private void FixedUpdate()
@@ -31,8 +32,10 @@ namespace GMTK2018
                 diggin = true;
             }
             else {
+                timeToCreateHole += timeButtonPressed;
                 timeButtonPressed = 0;
                 diggin = false;
+                digged = false;
             }
             if (!diggin)
             {
@@ -62,8 +65,9 @@ namespace GMTK2018
                 }
             }
             else {
-                if (timeToCreateHole < timeButtonPressed) {
-                    this.GetComponent<PlayerActions>().CreateHole(DigginPosition.transform);
+                if (timeToCreateHole < timeButtonPressed && !digged) {
+                    this.GetComponent<PlayerActions>().CreateHole(digginPosition.transform);
+                    digged = true;
                 }
             }
                 

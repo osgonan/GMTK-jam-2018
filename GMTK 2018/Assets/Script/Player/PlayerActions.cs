@@ -19,6 +19,7 @@ public class PlayerActions : MonoBehaviour {
   
 
     public void CreateHole(Transform transform) {
-        Instantiate(hole, transform.position, transform.rotation);
+
+        Instantiate(hole, transform.position, hole.GetComponent<Transform>().rotation);
     }
 }

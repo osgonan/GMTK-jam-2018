@@ -9,6 +9,8 @@ TagManager:
   - Troll
   - Wolf
   - Giant
+  - Enemy
+  - Hole
   layers:
   - Default
   - TransparentFX

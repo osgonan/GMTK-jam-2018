@@ -42,8 +42,7 @@ public class EnemyManager : MonoBehaviour {
     public void spawnEnemy() {
         float spawnerRandom = Random.Range(0, 100);
         for (int i = 0; i < enemies.Count; i++) {
-            Debug.Log(spawnerRandom <= spawnEnemyRandom[i] && spawnedEnemy.Count <= maxEnemies);
-            if (spawnerRandom <= spawnEnemyRandom[i] && spawnedEnemy.Count<= maxEnemies)
+            if (spawnerRandom >= spawnEnemyRandom[i] && spawnerRandom < spawnEnemyRandom[i + 1] && spawnedEnemy.Count<= maxEnemies)
             {
                 int index = Random.Range(0, routsX.Count);
                 enemies[i].GetComponent<MoveBetweenTwoPoints>().pointX = routsX[index].ListRouts; enemies[i].GetComponent<MoveBetweenTwoPoints>();
