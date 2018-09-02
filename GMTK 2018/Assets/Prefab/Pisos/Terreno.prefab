@@ -6477,7 +6477,7 @@ GameObject:
   - component: {fileID: 114047561550686594}
   m_Layer: 0
   m_Name: Piso
-  m_TagString: Untagged
+  m_TagString: Pasto
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -39042,7 +39042,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
+  m_Size: {x: 1, y: 1, z: 1.18}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!65 &65866402287887512
 BoxCollider:

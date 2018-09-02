@@ -12,6 +12,11 @@ public class PlayerActions : MonoBehaviour {
 
     public GameManager manager;
 
+    public float timeToCreateHole;
+
+
+
+  
 
     public void CreateHole(Transform transform) {
         Instantiate(hole, transform.position, transform.rotation);

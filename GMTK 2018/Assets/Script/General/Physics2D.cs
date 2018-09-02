@@ -23,7 +23,7 @@ namespace GMTK2018
 
                 Debug.Log(rightMovement + " " + upMovement);
                 Vector3 headling = Vector3.Normalize(upMovement + rightMovement);
-                esquipo.forward = headling;
+              //  esquipo.forward = headling;
                 transform.position += rightMovement;
                 transform.position += upMovement;
 
